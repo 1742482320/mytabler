@@ -1,14 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <router-view></router-view>
-  </div>
+    <site-wrapper>
+        <site-header imageUrl="" @toggle-menu="toggleMenu">
+          <div class="nav-item">
+            <t-button :outline="true" size="sm" herf="https://github.com/tabler/tabler-vue" target="_blank">Source</t-button>
+          </div>
+        </site-header>
+    </site-wrapper>
 </template>
 
 <script>
 
 export default {
-  name: 'app'
+  name: 'app',
+  data: ()=>({
+    menuCollapsed: true
+  }),
+  methods:{
+    toggleMenu(){
+      this.menuCollapsed = !this.menuCollapsed;
+    }
+  }
 }
 </script>
 
