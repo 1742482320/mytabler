@@ -1,0 +1,214 @@
+.navbar {
+    background-color: #fff;
+    color: $body-color;
+    border-bottom: 1px solid $body-color;
+    display: flex;
+    min-height: 3.5rem;
+    width: 100%;
+
+    .nav-link {
+        color: inherit;
+        white-space: nowrap;
+    }
+}
+
+.navbar-nav{
+    flex-direction: row;
+    margin-left: -($navbar-padding-x);
+    margin-right: -($navbar-padding-x);
+
+    .nav-link {
+        display: flex;
+        color: $text-muted;
+        transition: .3s color;
+        &:hover{
+            color: $body-color;
+        }
+    }
+
+    .nav-item {
+        position: relative;
+    }
+
+    .navbar-nav {
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+    
+}
+
+.navbar:not(.navbar-site) .navbar-subnav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: $zindex-tooltip;
+    background: #fff;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    width: 12rem;
+    font-size: $h5-font-size;
+    box-shadow: 0 0.5rem 1rem rgba(18, 18, 18, 0.15);
+    padding: .25rem;
+
+    .nav {
+        flex-direction: column;
+    }
+}
+
+/**
+Navbar brand
+*/
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+
+    @at-root a#{&} {
+        transition: .3s opacity;
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+}
+
+.navbar-brand-logo {
+    height: 2rem;
+}
+
+/**
+Navbar toggle
+*/
+.navbar-toggle {
+    padding: 0;
+    border: 0;
+}
+
+.navbar-toggle-icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+/**
+Fixed navbar
+*/
+.navbar-fixed {
+    position: fixed;
+    z-index: $zindex-sticky;
+    
+    &.navbar-side {
+        top: 0;
+        left: 0;
+        bottom: 0;
+
+        &.navbar-right {
+            right: 0;
+            left: auto;
+        }
+    }
+}
+
+/**
+Sidebar
+*/
+.navbar-site {
+    width: $sidenav-width;
+    min-width: $sidenav-width;
+    background: $sidenav-bg;
+    border-right: 1px solid $sidenav-border-color;
+    user-select: none;
+    flex-direction: column;
+    align-items:inherit;
+    margin: 0;
+    pointer-events: inherit;
+    justify-content: start;
+
+    .nav {
+        flex-direction: column;
+    }
+
+    .nav-link {
+        display: flex;
+        align-items: center;
+        color: $text-muted;
+        height: 2.5rem;
+        padding: 0 $navbar-padding-x;
+        box-shadow: inset 2px 0 0 transparent;
+        transition: .3s background, .3s box-shadow;
+
+        &[aria-expanded=true],
+        &.hover{
+            background-color: rgba($link-color,.04);
+            border-color: $primary;
+            box-shadow: inset 2px 0 0 0 $primary;
+        }
+
+        > .icon{
+            width: 2rem;
+        }
+
+        &[data-toggle="collapse"] {
+            &:after{
+                display: block;
+                font-family: $font-icons !important;
+                content: $icon-fe-chevron-down;
+                margin-left: auto;
+                transition: transform .3s;
+            }
+
+            &[aria-expanded="true"]:after{
+                transform: rotate(-180deg);
+            }
+        }
+    }
+
+    &:not(.navbar-folded) {
+        &[data-toggle="collapse"][aria-expanded=true] {
+            background: none;
+            box-shadow: none;
+        }
+    }
+
+    &:not(.hide-navbar-folded) {
+       .nav-item, .nav-item, .nav-link {
+           padding-left: 2.5rem;
+       }
+       .nav-item, .nav-item, .nav-item, .nav-link {
+           padding-left: 3.5rem;
+       }
+       .nav-item, .nav-item, .nav-item, .nav-item, .nav-link {
+            padding-left: 4.5rem;
+        }
+    }
+
+    .navbar-brand {
+        text-align: center;
+        height: 2.5rem;
+    }
+
+    .navbar-heading {
+        @extend .text-subheader;
+        margin: 0 0 .5rem;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+    }
+}
+
+/**
+Fixed Navbar
+*/
+.navbar-fixed {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+
+    & + .layout-main {
+        margin-left: $sidenav-width;
+    }
+
+    &.navbar-folded + 
+}
