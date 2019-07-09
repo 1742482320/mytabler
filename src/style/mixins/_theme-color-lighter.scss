@@ -1,0 +1,7 @@
+@function theme-color-lighter($color) {
+    @return rgba($color, .2);
+}
+
+@function theme-color-lightest($color) {
+    @return mix($color, #fff, 10%);
+}
